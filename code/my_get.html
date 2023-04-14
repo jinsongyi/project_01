@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../lib/jquery.js"></script>
+</head>
+
+<body>
+    <button id="btnGET">get请求</button>
+    <button id="btnPOST">post请求</button>
+    <button id="btnAJAX">ajax请求</button>
+    <script>
+        $(function() {
+            $('#btnGET').on('click', function() {
+                $.get('http://www.liulongbin.top:3006/api/getbooks', function(res) {
+                        console.log(res)
+                    })
+                    // $.get('http://www.liulongbin.top:3006/api/getbooks', {
+                    //     id: 3
+                    // }, function(res) {
+                    //     console.log(res)
+                    // })
+            })
+            $('#btnPOST').on('click', function() {
+                $.post('http://www.liulongbin.top:3006/api/addbook', {
+                    bookname: 'hahaha',
+                    author: 'JSY',
+                    publisher: 'fsdf出版社'
+                }, function(res) {
+                    console.log(res)
+                })
+            })
+            $('#btnAJAX').on('click', function() {
+                $.ajax({
+                    // type: 'get',
+                    // url: 'http://www.liulongbin.top:3006/api/getbooks',
+                    // data: {
+                    //     id: 3
+                    // },
+                    // dataType: "json",
+                    // cache: false,
+                    // cors: true,
+                    // secure: true,
+                    // headers: {
+                    //     'Access-Control-Allow-Origin': 'https://www.icama.cn',
+                    //     'Access-Control-Allow-Credentials': 'true'
+                    // },
+                    // headers: {
+                    //     "Origin": 'https://www.icama.cn',
+                    //     "Referer": 'https://www.icama.cn/BasicdataSystem/pesticideRegistration/queryselect.do',
+                    // },
+                    url: 'https://www.icama.cn/BasicdataSystem/pesticideRegistration/queryselect.do',
+                    dataType: "json",
+                    type: "POST",
+                    // 允许携带cookie凭证
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    // 允许跨域
+                    crossDomain: true,
+                    headers: {
+                        "Access-Control-Allow-Origin": '*',
+                        "Access-Control-Allow-Methods": 'POST',
+                        "Access-Control-Allow-Headers": 'x-requested-with,content-type',
+                    },
+                    data:
+                    // "pageNo=2&pageSize=20&djzh=&nymc=&cjmc=&sf=&nylb=&zhl=&jx=&zwmc=&fzdx=&syff=&dx=&yxcf=&yxcf_en=&yxcfhl=&yxcf2=&yxcf2_en=&yxcf2hl=&yxcf3=&yxcf3_en=&yxcf3hl=&yxqs_start=&yxqs_end=&yxjz_start=&yxjz_end=&accOrfuzzy=2",
+                    {
+                        pageNo: 2,
+                        pageSize: 20,
+                        djzh: '',
+                        nymc: '',
+                        cjmc: '',
+                        sf: '',
+                        nylb: '',
+                        zhl: '',
+                        jx: '',
+                        zwmc: '',
+                        fzdx: '',
+                        syff: '',
+                        dx: '',
+                        yxcf: '',
+                        yxcf_en: '',
+                        yxcfhl: '',
+                        yxcf2: '',
+                        yxcf2_en: '',
+                        yxcf2hl: '',
+                        yxcf3: '',
+                        yxcf3_en: '',
+                        yxcf3hl: '',
+                        yxqs_start: '',
+                        yxqs_end: '',
+                        yxjz_start: '',
+                        yxjz_end: '',
+                        accOrfuzzy: 2
+                    },
+                    success: function(res) {
+                        console.log(res)
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>
+
+<!-- pageNo=2&pageSize=20&djzh=&nymc=&cjmc=&sf=&nylb=&zhl=&jx=&zwmc=&fzdx=&syff=&dx=&yxcf=&yxcf_en=&yxcfhl=&yxcf2=&yxcf2_en=&yxcf2hl=&yxcf3=&yxcf3_en=&yxcf3hl=&yxqs_start=&yxqs_end=&yxjz_start=&yxjz_end=&accOrfuzzy=2
+pageNo=2&pageSize=20&djzh=&nymc=&cjmc=&sf=&nylb=&zhl=&jx=&zwmc=&fzdx=&syff=&dx=&yxcf=&yxcf_en=&yxcfhl=&yxcf2=&yxcf2_en=&yxcf2hl=&yxcf3=&yxcf3_en=&yxcf3hl=&yxqs_start=&yxqs_end=&yxjz_start=&yxjz_end=&accOrfuzzy=2 -->
